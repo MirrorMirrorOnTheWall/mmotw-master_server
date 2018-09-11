@@ -51,7 +51,7 @@ class App extends Component {
         <h1>Hello, world!</h1>
         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
         <h3>Client Device Type: {this.state.displayHeader.deviceType}</h3>
-        <h3>Client Activity: {this.state.message}.</h3>
+        <h3>Server Message: {this.state.message}.</h3>
       </div>
     );
   }
