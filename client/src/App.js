@@ -41,9 +41,6 @@ class App extends Component {
     this.setState({
       date: new Date()
     });
-  }
-
-
 
   render() {
     return (
