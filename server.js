@@ -95,8 +95,10 @@ io.on('connection', function(client) {
     });
 
     client.on('screenConnected', function(data) {
-        console.log('Screen Connected');
+        console.log('Screen Connected!!!');
+        client.emit('screenConnectedReponse', 'Hello New Device')
     });
+
 });
 
 server.listen(config.clientDevicePort);
