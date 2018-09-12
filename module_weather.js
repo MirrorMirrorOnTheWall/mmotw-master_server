@@ -1,27 +1,23 @@
 const API_KEY = '1284b9c003c91d9ad350d224e7b9c83f'
 const fetch = require('node-fetch');
 
-function retrieveCurrentWeather(zipCode) {
-    var url = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&appid=' + API_KEY;
-    return fetch(url)
-        .then(response => {
-            return response.json();
-        });
+async function retrieveCurrentWeather(zipCode) {
+    const url = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&appid=' + API_KEY;
+    let result = await fetch(url)
+        .then(response => response.json());
+    return result;
 }
-function retrieveFiveDayForecast(zipCode) {
-    var url = 'https://api.openweathermap.org/data/2.5/forecast?zip=' + zipCode + ',us&appid=' + API_KEY;
-    return fetch(url)
-        .then(response => {
-            return response.json();
-        });
+async function retrieveFiveDayForecast(zipCode) {
+    const url = 'https://api.openweathermap.org/data/2.5/forecast?zip=' + zipCode + ',us&appid=' + API_KEY;
+    let result = await fetch(url)
+        .then(response => response.json());
+    return result;
 }
 
-function test() {
-    retrieveCurrentWeather('95391').then(response => {
-        console.log(response);
-    });
-    
-    retrieveFiveDayForecast('95391').then(response => {
-        console.log(response);
-    });
+async function test() {
+    let currentWeather = await retrieveCurrentWeather('95391');
+    console.log(currentWeather);
+
+    let forecastWeather = await retrieveFiveDayForecast('95391');    
+    console.log(forecastWeather);
 }
