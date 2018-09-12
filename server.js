@@ -40,17 +40,6 @@ function provisionNewDevice(deviceDetails) {
         throw('BBAGH')
     }
 }
-/**
-app.use(express.static(__dirname + '/client/src'));
-app.get('/', function(req, res,next) {
-    res.sendFile(__dirname + '/client/src/index.html');
-});
-// Choose the port and start the server
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => {
-  console.log(`Mixing it up on port ${PORT}`)
-})
-**/
 
 // TODO: Find a way to abstract this code out to make it easier to interface with
 //       Im not sure how to structure this type of procedure. look into Socket.IO ex.s
@@ -95,8 +84,10 @@ io.on('connection', function(client) {
     });
 
     client.on('screenConnected', function(data) {
-        console.log('Screen Connected');
+        console.log('Screen Connected!!!');
+        client.emit('screenConnectedReponse', 'Hello New Device')
     });
+
 });
 
 server.listen(config.clientDevicePort);
