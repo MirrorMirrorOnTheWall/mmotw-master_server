@@ -25,7 +25,6 @@ async function retrieveNews() {
 
 //TEST
 async function test() {
-    console.log(JSON.stringify(Constants));
     let currentWeather = await retrieveWeather('95391');
     console.log(currentWeather);
 
